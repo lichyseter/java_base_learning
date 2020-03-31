@@ -1,4 +1,4 @@
-package com.lichy.java.entity;
+package com.lichy.java.annotation;
 
 /**
  * 简单个接口对象

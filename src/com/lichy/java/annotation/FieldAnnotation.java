@@ -1,4 +1,4 @@
-package com.lichy.java.entity;
+package com.lichy.java.annotation;
 
 import java.lang.annotation.*;
 
