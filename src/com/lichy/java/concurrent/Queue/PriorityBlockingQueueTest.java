@@ -1,4 +1,4 @@
-package com.lichy.java.concurrent;
+package com.lichy.java.concurrent.Queue;
 
 import java.util.concurrent.PriorityBlockingQueue;
 

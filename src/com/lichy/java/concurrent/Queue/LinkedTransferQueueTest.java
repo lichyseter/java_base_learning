@@ -1,21 +1,20 @@
-package com.lichy.java.concurrent;
+package com.lichy.java.concurrent.Queue;
 
-import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.LinkedTransferQueue;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 测试SynchronousQueue
+ * 测试LinkedTransferQueue
  *
  * @author lichy
  */
-public class SynchronousQueueTest {
-
+public class LinkedTransferQueueTest {
 
     public static void main(String[] args) throws InterruptedException {
-        SynchronousQueue<String> synchronousQueue = new SynchronousQueue<>();
+        LinkedTransferQueue<String> linkedTransferQueue = new LinkedTransferQueue<>();
         Thread t1 = new Thread(() -> {
             try {
-                synchronousQueue.put("1");
+                linkedTransferQueue.transfer("1");
                 System.out.println("放入1");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -23,7 +22,7 @@ public class SynchronousQueueTest {
         });
         Thread t2 = new Thread(() -> {
             try {
-                synchronousQueue.take();
+                linkedTransferQueue.take();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -31,7 +30,7 @@ public class SynchronousQueueTest {
         });
         Thread t3 = new Thread(() -> {
             try {
-                synchronousQueue.put("2");
+                linkedTransferQueue.transfer("2");
                 System.out.println("放入2");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -39,7 +38,7 @@ public class SynchronousQueueTest {
         });
         Thread t4 = new Thread(() -> {
             try {
-                synchronousQueue.take();
+                linkedTransferQueue.take();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -51,4 +50,6 @@ public class SynchronousQueueTest {
         t3.start();
         t4.start();
     }
+
+
 }

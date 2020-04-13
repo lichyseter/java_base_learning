@@ -22,20 +22,14 @@ public class CyclicBarrierTest {
                 System.out.println("线程" + finalI + "开始执行");
                 try {
                     cyclicBarrier.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
+                } catch (InterruptedException | BrokenBarrierException e) {
                     e.printStackTrace();
                 }
                 System.out.println("线程" + finalI + "第一阶段完成");
 
                 try {
                     cyclicBarrier.await(1, TimeUnit.SECONDS);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (BrokenBarrierException e) {
-                    e.printStackTrace();
-                } catch (TimeoutException e) {
+                } catch (InterruptedException | BrokenBarrierException | TimeoutException e) {
                     e.printStackTrace();
                 }
                 System.out.println("线程" + finalI + "第二阶段完成");
@@ -43,19 +37,13 @@ public class CyclicBarrierTest {
         }
         try {
             cyclicBarrier.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (BrokenBarrierException e) {
+        } catch (InterruptedException | BrokenBarrierException e) {
             e.printStackTrace();
         }
         cyclicBarrier.reset();
         try {
             cyclicBarrier.await(1, TimeUnit.SECONDS);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (BrokenBarrierException e) {
-            e.printStackTrace();
-        } catch (TimeoutException e) {
+        } catch (InterruptedException | BrokenBarrierException | TimeoutException e) {
             e.printStackTrace();
         }
     }
