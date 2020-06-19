@@ -10,16 +10,16 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyTest implements InvocationHandler {
 
-    Entity entity;
+    MyInterface entity;
 
-    public ProxyTest(Entity entity) {
+    public ProxyTest(MyInterface entity) {
         this.entity = entity;
     }
 
     public static void main(String[] args) {
-        Entity entity = new Entity();
-        MyInterface myInterface = (MyInterface) Proxy.newProxyInstance(entity.getClass().getClassLoader(), entity.getClass().getInterfaces(), new ProxyTest(entity));
-        System.out.println(myInterface.getInterfaceValue(1));
+        MyInterface entity = new Entity();
+        MyInterface proxyInstance = (MyInterface) Proxy.newProxyInstance(entity.getClass().getClassLoader(), entity.getClass().getInterfaces(), new ProxyTest(entity));
+        System.out.println(proxyInstance.getInterfaceValue(1));
     }
 
 

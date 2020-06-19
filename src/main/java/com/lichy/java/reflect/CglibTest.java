@@ -13,11 +13,11 @@ public class CglibTest {
 
     public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
-        enhancer.setSuperclass(Entity.class);
+        enhancer.setSuperclass(CglibEntity.class);
         // 根据proxyfilter中的index返回这两个中的一个
         enhancer.setCallbacks(new Callback[]{new ProxyClass(), NoOp.INSTANCE});
         enhancer.setCallbackFilter(new ProxyFilter());
-        MyInterface myInterface = (MyInterface) enhancer.create();
+        CglibEntity myInterface = (CglibEntity) enhancer.create();
         System.out.println(myInterface.getInterfaceValue(1));
     }
 
