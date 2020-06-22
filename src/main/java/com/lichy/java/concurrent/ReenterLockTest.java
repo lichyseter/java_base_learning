@@ -14,8 +14,8 @@ public class ReenterLockTest {
         for (int i = 0; i < 3; i++) {
             final int count = i;
             new Thread(() -> {
+                lock.lock();
                 try {
-                    lock.lock();
                     if (count == 1) {
                         condition2.await();
                     } else if (count == 2){
