@@ -12,12 +12,9 @@ public class Test {
         arrs.add("c");
         arrs.add("d");
         arrs.add("e");
-
-
         arrs.add("f");
         arrs.add("h");
         arrs.add("i");
-
         arrs.add("j");
         Spliterator<String> a =  arrs.spliterator();
         //此时结果：a:0-9（index-fence）
